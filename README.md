@@ -1,41 +1,30 @@
-## Week 5
+## Week 6
 
-### You are required to complete the following two programming questions:
+You have been asked to sort a series of timestamps into chronological order from earliest to latest. The timestamps are supplied in a text file as strings in the following format: “dd/mm/yyyy-hh:mm:ss” e.g.  29/11/2021-15:33:56
+
 ### Question 1
-1. Select two of the sort algorithms discussed in class and code the selected algorithms.
-2. Add code to your sort algorithms to calculate efficiency by gathering data on:
-       a. Time for algorithm to run
-       b. Number of swaps
-       c. Number of comparisons
-3. Download the Peak Wind speed at 80meter data for your birthday in 2013 from the following website: http://www.nrel.gov/midc/apps/daily.pl?site=NWTC&start=20010824&yr=2014&mo=7&dy=24
-      
-      i.   Enter the date of your 2013 birthday as both the starting and ending date
-      
-      ii.  Check the box for the “Pk Wind Speed (80m)” in the right-hand column.
-      
-      iii. Select the output type “1-Min data (ASCII text)” in the left-hand column near the bottom
-      
-      iv.  Click on the Submit button.
-     
-     This will generate an ACSII list of the Peak Wind speed at 80meter in Colorado on your birthday in 2013.
-     
-4. Copy and paste the data into a text file and save in csv format.
-5. Open the file in a spreadsheet program. Delete the top row and the first two columns.
-6. Save the file and re-open in a text editor. Find and replace all instances of the newline character ‘\n’ with a comma ‘,’
-7. Copy and paste the newly formatted data into an array declaration in your C program. Consider using a .h header file to keep things neat.
-8. Run both of your algorithms with the wind speed data you created (keeping track of time, swaps, and comparisons).
-9. Display your results and discuss which algorithm performed better on your data set.
+Write a program which takes the name of the text file as input and produces an output file with the sorted timestamps.
+Your program should:
+       
+   1. Prompt the user for the names of the input and output files and store for later use. If the input file does not exist, display an error message and re-prompt.
+       
+   2. Read in the series of strings from the text file and store these in an array of strings.
+       
+   3. Sort the array alphabetically using the bubble sort algorithm.
+       
+   4. Write the sorted array to the output file and comment on the results.
 
 
 ### Question 2
-Using the sorted data you created in Question 1, identify the maximum and minimum wind speed values. Create an array consisting of five integers that divide the extremes of the data range into five equally spaced partitions.  Returning to the unsorted data, create code that will read in the data, counting the frequency of instances of the data falling into each partition. Print out the frequencies in a user-friendly format.
-    
-    Simplified example:
-    Number of measurements: 1440
-    max wind speed: 100mph, min wind speed: 1mph
-    partition ranges 1-20, 21-40, 41-60, 61-80, 91-100
-    number of measurements between 1mph and 20mph: 901
-    number of measurements between 21mph and 40mph: 214
-    number of measurements between 41mph and 60mph: 166
-    number of measurements between 61mph and 80mph: 117
-    number of measurements between 91mph and 100mph: 41
+Develop a special function to convert the timestamps into something that can be sorted from earliest to latest based on a numerical value rather than alphabetical. Re-write your program in a new file with the same functionality as above, along with the following enhancements:
+
+1. The array of strings should be allocated dynamically to minimise the amount of memory used.
+2. Create a function called timeStampToSeconds() that converts a timestamp string to a long int, which represents the number of seconds elapsed since 01/01/2000 00:00:00.
+
+   Your code will need to check that each character is a valid number between 0 and 9, ignoring formatting characters ('/', ' ', ':', '-') and convert the characters to their equivalent integers before being used to calculate the number of seconds elapsed since the above starting point.
+
+3. Sort the string array using the timeStampToSeconds() function and any suitable sort algorithm. Write the sorted array to the output file and compare with the output file from question 1. Comment on the results.
+4. Loop through the array and find timestamps from the year 2016.
+5. Display on screen a list of only those timestamps that come from the year 2016.
+
+Note: For the purposes of this assignment the number of days per year can be taken as 365.25 with 31,557,600 seconds per year.
